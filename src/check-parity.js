@@ -9,8 +9,9 @@ const checkParity = () => {
     console.log(`Question: ${number}`);
     const userAnswer = getUserAnswer();
     let num;
-    if (number % 2 === 0) { num = 'yes'; }
-    else num = 'no';
+    if (number % 2 === 0) {
+      num = 'yes';
+    } else num = 'no';
     if (!(num === userAnswer)) {
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${num}".`);
       console.log(`Let's try again, ${userName}!`);
