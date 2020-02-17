@@ -10,4 +10,3 @@ export const getUserAnswer = () => {
   const userAnswer = readlineSync.question('Your answer: ');
   return userAnswer;
 };
-
