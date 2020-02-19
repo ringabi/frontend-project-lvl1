@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import checkParity from '../src/check-parity.js';
+import toCount from '../src/games/brain-calc-game.js';
 import { greeting } from '../src/index.js';
 
 greeting();
-checkParity();
+toCount();

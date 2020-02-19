@@ -2,3 +2,5 @@
 ![Node.js CI](https://github.com/ringabi/frontend-project-lvl1/workflows/Node.js%20CI/badge.svg)
 
 https://asciinema.org/a/O8nTYtZF3d3zW9elqY0W7l3Uo
+
+https://asciinema.org/a/LqGznsp1jYQzELPb6fArb7mJj
