@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import checkParity from '../src/games/brain-even-game.js';
 import { greeting } from '../src/index.js';
+import getGCD from '../src/games/brain-gcd-game.js';
 
 greeting();
-checkParity();
+getGCD();

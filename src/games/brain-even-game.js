@@ -1,5 +1,5 @@
 
-import { getUserAnswer, getUserName } from './index.js';
+import { getUserAnswer, getUserName } from '../index.js';
 
 const checkParity = () => {
   const userName = getUserName();
