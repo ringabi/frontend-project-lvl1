@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import { greeting } from '../src/index.js';
-import getGCD from '../src/games/brain-gcd-game.js';
+import engine from '../src/index.js';
 
-greeting();
-getGCD();
+engine();
