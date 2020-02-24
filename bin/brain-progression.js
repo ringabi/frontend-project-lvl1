@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import engine from '../src/index.js';
+import { greeting, getUserName, engine } from '../src/index.js';
+import findTheMissingNumber from '../src/games/brain-progression-game.js';
 
-engine();
+greeting();
+engine(findTheMissingNumber(), getUserName());

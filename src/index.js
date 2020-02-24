@@ -1,26 +1,27 @@
 import readlineSync from 'readline-sync';
-import isAPrime from './games/brain-prime-game.js';
 
-const engine = () => {
+export const greeting = () => {
   console.log('Welcome to the Brain Games!');
+};
+
+export const getUserName = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  let pair = isAPrime();
-  console.log(pair[1]);
-  for (let i = 0; i < 3; i += 1) {
-    pair = isAPrime();
-    const subpair = pair[0];
-    console.log(`Question: ${subpair[0]}`);
+  return userName;
+};
+
+export const engine = (engineData, userName) => {
+  console.log(engineData[6]);
+  for (let attemptNumber = 0; attemptNumber < 3; attemptNumber += 1) {
+    console.log(`Question: ${engineData[2 * attemptNumber]}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (!((subpair[1]).toString() === userAnswer)) {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${subpair[1]}".`);
+    if (!((engineData[1 + 2 * attemptNumber]).toString() === userAnswer)) {
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${engineData[1 + 2 * attemptNumber]}".`);
       console.log(`Let's try again, ${userName}!`);
       break;
     } else console.log('Correct!');
-    if (i === 2) {
+    if (attemptNumber === 2) {
       console.log(`Congratulations, ${userName}!`);
     }
   }
 };
-
-export default engine;

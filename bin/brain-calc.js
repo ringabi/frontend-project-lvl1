@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import engine from '../src/index.js';
+import { greeting, getUserName, engine } from '../src/index.js';
+import toCount from '../src/games/brain-calc-game.js';
 
-engine();
+greeting();
+engine(toCount(), getUserName());

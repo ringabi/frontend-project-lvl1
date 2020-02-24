@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
-import engine from '../src/index.js';
+import { greeting, getUserName, engine } from '../src/index.js';
+import checkParity from '../src/games/brain-even-game.js';
 
-engine();
+greeting();
+engine(checkParity(), getUserName());
