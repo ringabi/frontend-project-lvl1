@@ -1,9 +1,14 @@
+import { engine, setNumberEngineIterations } from '../index.js';
+import getRandomNumber from '../utils.js';
+
 const getGreatestCommonDivisor = () => {
   const rules = 'Find the greatest common divisor of given numbers.';
-  const engineData = [];
-  for (let attemptNumber = 0; attemptNumber < 3; attemptNumber += 1) {
-    const number1 = Math.round(80 * Math.random());
-    const number2 = Math.round(80 * Math.random());
+  const pairs = [];
+  const numberEngineIterations = setNumberEngineIterations();
+  for (let attemptNumber = 0; attemptNumber < numberEngineIterations; attemptNumber += 1) {
+    const pair = [];
+    const number1 = getRandomNumber();
+    const number2 = getRandomNumber();
     let maxNumber;
     let minNumber;
     if (number1 > number2) {
@@ -20,11 +25,11 @@ const getGreatestCommonDivisor = () => {
       }
     }
     const numbers = [` ${number1}  ${number2}`];
-    engineData.push(numbers);
-    engineData.push(result);
+    pair.push(numbers);
+    pair.push(result);
+    pairs.push(pair);
   }
-  engineData.push(rules);
-  return engineData;
+  engine(pairs, rules);
 };
 
 export default getGreatestCommonDivisor;

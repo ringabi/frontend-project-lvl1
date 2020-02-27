@@ -1,10 +1,15 @@
+import { engine, setNumberEngineIterations } from '../index.js';
+import getRandomNumber from '../utils.js';
+
 const toCount = () => {
   const rules = 'What is the result of the expression?';
-  const engineData = [];
-  for (let attemptNumber = 0; attemptNumber < 3; attemptNumber += 1) {
+  const pairs = [];
+  const numberEngineIterations = setNumberEngineIterations();
+  for (let attemptNumber = 0; attemptNumber < numberEngineIterations; attemptNumber += 1) {
+    const pair = [];
     const selectionOfOperand = Math.floor(Math.random() * Math.floor(3));
-    const number1 = Math.round(100 * Math.random());
-    const number2 = Math.round(100 * Math.random());
+    const number1 = getRandomNumber();
+    const number2 = getRandomNumber();
     let result;
     let expression;
     if (selectionOfOperand === 0) {
@@ -17,11 +22,11 @@ const toCount = () => {
       result = number1 * number2;
       expression = `${number1} * ${number2}`;
     }
-    engineData.push(expression);
-    engineData.push(result);
+    pair.push(expression);
+    pair.push(result);
+    pairs.push(pair);
   }
-  engineData.push(rules);
-  return engineData;
+  engine(pairs, rules);
 };
 
 export default toCount;
