@@ -9,11 +9,6 @@ const isAPrime = () => {
     const pair = [];
     const question = getRandomNumber();
     let answer = 'yes';
-    if (question < 2 || (question !== 2 && question % 2 === 0) || question % 3 === 0) {
-      if (question % 5 === 0 || question % 7 === 0) {
-        answer = 'no';
-      }
-    }
     for (let i = question - 1; i > 1; i -= 1) {
       if (question % i === 0) {
         answer = 'no';

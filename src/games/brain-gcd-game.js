@@ -9,15 +9,8 @@ const getGreatestCommonDivisor = () => {
     const pair = [];
     const number1 = getRandomNumber();
     const number2 = getRandomNumber();
-    let maxNumber;
-    let minNumber;
-    if (number1 > number2) {
-      maxNumber = number1;
-      minNumber = number2;
-    } else {
-      maxNumber = number2;
-      minNumber = number1;
-    }
+    const maxNumber = (number1 > number2) ? number1 : number2;
+    const minNumber = (number1 > number2) ? number2 : number1;
     let answer;
     for (answer = minNumber; answer > 0; answer -= 1) {
       if (minNumber % answer === 0 && maxNumber % answer === 0) {
