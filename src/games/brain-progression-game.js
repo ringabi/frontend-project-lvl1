@@ -1,28 +1,28 @@
-import { engine, setNumberEngineIterations } from '../index.js';
+import { engine, numberEngineAttempts } from '../index.js';
 import getRandomNumber from '../utils.js';
 
+const task = 'What number is missing in the progression?';
+
 const findTheMissingNumber = () => {
-  const rules = 'What number is missing in the progression?';
   const pairs = [];
-  const numberEngineIterations = setNumberEngineIterations();
-  for (let attemptNumber = 0; attemptNumber < numberEngineIterations; attemptNumber += 1) {
+  for (let attemptNumber = 0; attemptNumber < numberEngineAttempts; attemptNumber += 1) {
     const pair = [];
     const firstNumberProgression = getRandomNumber();
     const stepProgression = Math.ceil(15 * Math.random());
     const indexMissedNumber = Math.floor(10 * Math.random());
-    const progression = [];
+    const question = [];
     const progressionLength = 10;
     for (let index = 0; index < progressionLength; index += 1) {
       if (index === indexMissedNumber) {
-        progression.push('..');
-      } else progression.push(firstNumberProgression + index * stepProgression);
+        question.push('..');
+      } else question.push(firstNumberProgression + index * stepProgression);
     }
-    const result = firstNumberProgression + indexMissedNumber * stepProgression;
-    pair.push(progression.join(' '));
-    pair.push(result);
+    const answer = firstNumberProgression + indexMissedNumber * stepProgression;
+    pair.push(question.join(' '));
+    pair.push(answer);
     pairs.push(pair);
   }
-  engine(pairs, rules);
+  engine(pairs, task);
 };
 
 export default findTheMissingNumber;

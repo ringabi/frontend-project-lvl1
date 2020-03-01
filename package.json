@@ -1,7 +1,16 @@
 {
   "name": "frontend-project-lvl1",
   "version": "1.0.0",
-  "description": "",
+  "description": "arithmetic games",
+  "keywords": [
+    "brain-games",
+    "brain-even",
+    "brain-calc",
+    "brain-gcd",
+    "brain-progression",
+    "brain-prime",
+    "hexlet student"
+  ],    
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +19,7 @@
     "type": "git",
     "url": "git+https://github.com/ringabi/frontend-project-lvl1.git"
   },
-  "author": "",
+  "author": "Rinat Gabidullin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ringabi/frontend-project-lvl1/issues"
@@ -18,7 +27,6 @@
   "homepage": "https://github.com/ringabi/frontend-project-lvl1#readme",
   "type": "module",
   "bin": {
-    "brain-games": "bin/brain-games.js",
     "brain-even": "bin/brain-even.js",
     "brain-calc": "bin/brain-calc.js",
     "brain-gcd": "bin/brain-gcd.js",

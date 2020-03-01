@@ -1,28 +1,28 @@
-import { engine, setNumberEngineIterations } from '../index.js';
+import { engine, numberEngineAttempts } from '../index.js';
 import getRandomNumber from '../utils.js';
 
+const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 const isAPrime = () => {
-  const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   const pairs = [];
-  const numberEngineIterations = setNumberEngineIterations();
-  for (let attemptNumber = 0; attemptNumber < numberEngineIterations; attemptNumber += 1) {
+  for (let attemptNumber = 0; attemptNumber < numberEngineAttempts; attemptNumber += 1) {
     const pair = [];
-    const number = getRandomNumber();
-    let result = 'yes';
-    if (number < 2 || (number !== 2 && number % 2 === 0) || number % 3 === 0 || number % 5 === 0) {
-      if (number % 7 === 0) {
-        result = 'no';
+    const question = getRandomNumber();
+    let answer = 'yes';
+    if (question < 2 || (question !== 2 && question % 2 === 0) || question % 3 === 0) {
+      if (question % 5 === 0 || question % 7 === 0) {
+        answer = 'no';
       }
     }
-    for (let i = number - 1; i > 1; i -= 1) {
-      if (number % i === 0) {
-        result = 'no';
+    for (let i = question - 1; i > 1; i -= 1) {
+      if (question % i === 0) {
+        answer = 'no';
       }
     }
-    pair.push(number);
-    pair.push(result);
+    pair.push(question);
+    pair.push(answer);
     pairs.push(pair);
-  } engine(pairs, rules);
+  } engine(pairs, task);
 };
 
 export default isAPrime;

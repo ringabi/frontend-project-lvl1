@@ -1,11 +1,11 @@
-import { engine, setNumberEngineIterations } from '../index.js';
+import { engine, numberEngineAttempts } from '../index.js';
 import getRandomNumber from '../utils.js';
 
+const task = 'Find the greatest common divisor of given numbers.';
+
 const getGreatestCommonDivisor = () => {
-  const rules = 'Find the greatest common divisor of given numbers.';
   const pairs = [];
-  const numberEngineIterations = setNumberEngineIterations();
-  for (let attemptNumber = 0; attemptNumber < numberEngineIterations; attemptNumber += 1) {
+  for (let attemptNumber = 0; attemptNumber < numberEngineAttempts; attemptNumber += 1) {
     const pair = [];
     const number1 = getRandomNumber();
     const number2 = getRandomNumber();
@@ -18,18 +18,18 @@ const getGreatestCommonDivisor = () => {
       maxNumber = number2;
       minNumber = number1;
     }
-    let result;
-    for (result = minNumber; result > 0; result -= 1) {
-      if (minNumber % result === 0 && maxNumber % result === 0) {
+    let answer;
+    for (answer = minNumber; answer > 0; answer -= 1) {
+      if (minNumber % answer === 0 && maxNumber % answer === 0) {
         break;
       }
     }
-    const numbers = [` ${number1}  ${number2}`];
-    pair.push(numbers);
-    pair.push(result);
+    const question = [` ${number1}  ${number2}`];
+    pair.push(question);
+    pair.push(answer);
     pairs.push(pair);
   }
-  engine(pairs, rules);
+  engine(pairs, task);
 };
 
 export default getGreatestCommonDivisor;
