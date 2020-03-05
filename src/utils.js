@@ -1,6 +1,7 @@
-const getRandomNumber = () => {
-  const number = Math.round(100 * Math.random());
-  return number;
+const getRandomIntInclusive = (min, max) => {
+  const minCeil = Math.ceil(min);
+  const maxFloor = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloor - minCeil + 1)) + minCeil;
 };
 
-export default getRandomNumber;
+export default getRandomIntInclusive;

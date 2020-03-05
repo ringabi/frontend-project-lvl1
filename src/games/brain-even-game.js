@@ -1,19 +1,20 @@
-import { engine, numberEngineAttempts } from '../index.js';
-import getRandomNumber from '../utils.js';
+import { engine, attemptsCount } from '../index.js';
+import getRandomIntInclusive from '../utils.js';
 
 const task = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-const checkParity = () => {
-  const pairs = [];
-  for (let attemptNumber = 0; attemptNumber < numberEngineAttempts; attemptNumber += 1) {
-    const pair = [];
-    const question = getRandomNumber();
-    const answer = (question % 2 === 0) ? 'yes' : 'no';
-    pair.push(question);
-    pair.push(answer);
-    pairs.push(pair);
-  }
-  engine(pairs, task);
+const isEven = (number) => {
+  if (number % 2 === 0) {
+    return true;
+  } return false;
 };
 
-export default checkParity;
+export default () => {
+  const gameDate = [];
+  for (let currentAttempt = 0; currentAttempt < attemptsCount; currentAttempt += 1) {
+    const question = getRandomIntInclusive(0, 1000);
+    const answer = isEven(question) ? 'yes' : 'no';
+    gameDate.push([question, answer]);
+  }
+  engine(gameDate, task);
+};

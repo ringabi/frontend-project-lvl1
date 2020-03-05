@@ -1,5 +1,5 @@
-import { engine, numberEngineAttempts } from '../index.js';
-import getRandomNumber from '../utils.js';
+import { engine, attemptsCount } from '../index.js';
+import getRandomIntInclusive from '../utils.js';
 
 const task = 'What number is missing in the progression?';
 
@@ -14,17 +14,14 @@ const getProgressionForQuestion = (firstNumber, stepProgression, indexMissedNumb
 };
 
 export default () => {
-  const pairs = [];
-  for (let attemptNumber = 0; attemptNumber < numberEngineAttempts; attemptNumber += 1) {
-    const pair = [];
-    const firstNumber = getRandomNumber();
-    const stepProgression = Math.ceil(15 * Math.random());
-    const indexMissedNumber = Math.floor(10 * Math.random());
+  const gameData = [];
+  for (let currentAttempt = 0; currentAttempt < attemptsCount; currentAttempt += 1) {
+    const firstNumber = getRandomIntInclusive(0, 100);
+    const stepProgression = getRandomIntInclusive(1, 20);
+    const indexMissedNumber = getRandomIntInclusive(0, 9);
     const question = getProgressionForQuestion(firstNumber, stepProgression, indexMissedNumber);
     const answer = firstNumber + indexMissedNumber * stepProgression;
-    pair.push(question.join(' '));
-    pair.push(answer);
-    pairs.push(pair);
+    gameData.push([question.join(' '), answer.toString()]);
   }
-  engine(pairs, task);
+  engine(gameData, task);
 };

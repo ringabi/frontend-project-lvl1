@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import findTheMissingNumber from '../src/games/brain-progression-game.js';
+import runTheGame from '../src/games/brain-progression-game.js';
 
-findTheMissingNumber();
+runTheGame();

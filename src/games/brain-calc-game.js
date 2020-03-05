@@ -1,15 +1,14 @@
-import { engine, numberEngineAttempts } from '../index.js';
-import getRandomNumber from '../utils.js';
+import { engine, attemptsCount } from '../index.js';
+import getRandomIntInclusive from '../utils.js';
 
 const task = 'What is the result of the expression?';
 
-const toCount = () => {
-  const pairs = [];
-  for (let attemptNumber = 0; attemptNumber < numberEngineAttempts; attemptNumber += 1) {
-    const pair = [];
-    const selectionOfOperand = Math.floor(Math.random() * Math.floor(3));
-    const number1 = getRandomNumber();
-    const number2 = getRandomNumber();
+export default () => {
+  const gameData = [];
+  for (let currentAttempt = 0; currentAttempt < attemptsCount; currentAttempt += 1) {
+    const selectionOfOperand = getRandomIntInclusive(0, 2);
+    const number1 = getRandomIntInclusive(0, 100);
+    const number2 = getRandomIntInclusive(0, 100);
     let question;
     let answer;
     if (selectionOfOperand === 0) {
@@ -22,11 +21,7 @@ const toCount = () => {
       answer = number1 * number2;
       question = `${number1} * ${number2}`;
     }
-    pair.push(question);
-    pair.push(answer);
-    pairs.push(pair);
+    gameData.push([question, answer.toString()]);
   }
-  engine(pairs, task);
+  engine(gameData, task);
 };
-
-export default toCount;
