@@ -10,10 +10,12 @@ export const engine = (gameData, task) => {
   for (const [question, answer] of gameData) {
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (!(answer === userAnswer)) {
+    if (answer !== userAnswer) {
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${answer}".`);
       console.log(`Let's try again, ${userName}!`);
       return;
-    } console.log('Correct!');
-  } console.log(`Congratulations, ${userName}!`);
+    }
+    console.log('Correct!');
+  }
+  console.log(`Congratulations, ${userName}!`);
 };

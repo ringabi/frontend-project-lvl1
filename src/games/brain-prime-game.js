@@ -1,5 +1,5 @@
 import { engine, attemptsCount } from '../index.js';
-import getRandomIntInclusive from '../utils.js';
+import getRandomInt from '../utils.js';
 
 const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -11,14 +11,16 @@ const isPrime = (number) => {
     if (number % i === 0) {
       return false;
     }
-  } return true;
+  }
+  return true;
 };
 
 export default () => {
   const gameData = [];
   for (let currentAttempt = 0; currentAttempt < attemptsCount; currentAttempt += 1) {
-    const question = getRandomIntInclusive(0, 100);
+    const question = getRandomInt(0, 100);
     const answer = isPrime(question) ? 'yes' : 'no';
-    gameData.push([question, answer]);
-  } engine(gameData, task);
+    gameData.push([question.toString(), answer]);
+  }
+  engine(gameData, task);
 };
