@@ -1,17 +1,19 @@
-import { engine, attemptsCount } from '../index.js';
+import { runEngine, attemptsCount } from '../index.js';
 import getRandomInt from '../utils.js';
 
 const task = 'What number is missing in the progression?';
+const progressionLength = 10;
 
-const getProgressionForQuestion = (firstNumber, stepProgression, indexMissedNumber) => {
+const getQuestion = (firstNumber, stepProgression, indexMissedNumber) => {
   const progressionQuestion = [];
-  const progressionLength = 10;
   for (let index = 0; index < progressionLength; index += 1) {
     if (index === indexMissedNumber) {
       progressionQuestion.push('..');
-    } else progressionQuestion.push(firstNumber + index * stepProgression);
+    } else {
+      progressionQuestion.push(firstNumber + index * stepProgression);
+    }
   }
-  return progressionQuestion;
+  return progressionQuestion.join(' ');
 };
 
 export default () => {
@@ -19,10 +21,10 @@ export default () => {
   for (let currentAttempt = 0; currentAttempt < attemptsCount; currentAttempt += 1) {
     const firstNumber = getRandomInt(0, 100);
     const stepProgression = getRandomInt(1, 20);
-    const indexMissedNumber = getRandomInt(0, 9);
-    const question = getProgressionForQuestion(firstNumber, stepProgression, indexMissedNumber);
+    const indexMissedNumber = getRandomInt(0, progressionLength - 1);
+    const question = getQuestion(firstNumber, stepProgression, indexMissedNumber);
     const answer = firstNumber + indexMissedNumber * stepProgression;
-    gameData.push([question.join(' '), answer.toString()]);
+    gameData.push([question, answer.toString()]);
   }
-  engine(gameData, task);
+  runEngine(gameData, task);
 };

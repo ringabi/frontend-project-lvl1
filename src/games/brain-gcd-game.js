@@ -1,4 +1,4 @@
-import { engine, attemptsCount } from '../index.js';
+import { runEngine, attemptsCount } from '../index.js';
 import getRandomInt from '../utils.js';
 
 const task = 'Find the greatest common divisor of given numbers.';
@@ -24,5 +24,5 @@ export default () => {
     const question = `${number1}  ${number2}`;
     gameData.push([question, answer.toString()]);
   }
-  engine(gameData, task);
+  runEngine(gameData, task);
 };

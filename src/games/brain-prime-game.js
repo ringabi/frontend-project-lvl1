@@ -1,4 +1,4 @@
-import { engine, attemptsCount } from '../index.js';
+import { runEngine, attemptsCount } from '../index.js';
 import getRandomInt from '../utils.js';
 
 const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -22,5 +22,5 @@ export default () => {
     const answer = isPrime(question) ? 'yes' : 'no';
     gameData.push([question.toString(), answer]);
   }
-  engine(gameData, task);
+  runEngine(gameData, task);
 };
