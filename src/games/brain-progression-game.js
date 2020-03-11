@@ -5,15 +5,15 @@ const task = 'What number is missing in the progression?';
 const progressionLength = 10;
 
 const getQuestion = (firstNumber, stepProgression, indexMissedNumber) => {
-  const progressionQuestion = [];
+  const progression = [];
   for (let index = 0; index < progressionLength; index += 1) {
     if (index === indexMissedNumber) {
-      progressionQuestion.push('..');
+      progression.push('..');
     } else {
-      progressionQuestion.push(firstNumber + index * stepProgression);
+      progression.push(firstNumber + index * stepProgression);
     }
   }
-  return progressionQuestion.join(' ');
+  return progression.join(' ');
 };
 
 export default () => {

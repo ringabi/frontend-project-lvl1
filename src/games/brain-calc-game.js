@@ -20,7 +20,7 @@ const calculate = (number1, number2, operator) => {
 export default () => {
   const gameData = [];
   for (let currentAttempt = 0; currentAttempt < attemptsCount; currentAttempt += 1) {
-    const operatorIndex = getRandomInt(0, 2);
+    const operatorIndex = getRandomInt(0, operators.length - 1);
     const number1 = getRandomInt(0, 100);
     const number2 = getRandomInt(0, 100);
     const operator = operators[operatorIndex];
